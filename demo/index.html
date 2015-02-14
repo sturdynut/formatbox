@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sturdy Validator</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../dist/sturdy-validator.js"></script>
+	</head>
+	<body>
+		<h1>Sturdy Validator</h1>
+		<p>This is a work in progress.  :D</p>
+		<input id="email" placeholder="Email Address" type="email"></input>
+		<script>
+			$(function() {
+				$('#email').on('keyup', function() {
+					$(this).validate({
+						success: function () {
+							console.log('Success');
+						},
+						fail: function () {
+							console.log('Fail');
+						},
+						error: function (e) {
+							console.log('Error: ' + e.message);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

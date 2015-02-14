@@ -1,0 +1,39 @@
+{
+	"name": "sturdy-validator",
+	"title": "Sturdy Validator",
+	"description": "A validator that just works.",
+	"keywords": [
+		"jquery",
+		"plugin",
+		"jquery-plugin",
+		"sturdy",
+		"sturdy-validator",
+		"validator"
+	],
+	"version": "0.0.1",
+	"author": {
+		"name": "Matti Salokangas",
+		"email": "matti.salokangas@gmail.com",
+		"url": "https://github.com/sturdynut"
+	},
+	"maintainers": [
+		{
+			"name": "Matti Salokangas",
+			"email": "matti.salokangas@gmail.com",
+			"url": "https://github.com/sturdynut"
+		}
+	],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://mit-license.org/"
+		}
+	],
+	"bugs": "https://github.com/sturdynut/sturdy-validator/issues",
+	"homepage": "https://github.com/sturdynut/sturdy-validator",
+	"docs": "https://github.com/sturdynut/sturdy-validator#readme",
+	"download": "https://github.com/sturdynut/sturdy-validator/archive/master.zip",
+	"dependencies": {
+		"jquery": ">=1.4"
+	}
+}
