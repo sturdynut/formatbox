@@ -81,7 +81,15 @@
     };
   };
 
+  var BaseValidator = function (type, validate) {
+    this.type = type;
+    this.validate = validate;
+  };
+  BaseValidator.prototype.type = 'base';
+  BaseValidator.prototype.validate = function () { };
+
   window.Sturdy = window.Sturdy || {};
   window.Sturdy.Validator = new Validator();
+  window.Sturdy.Validator.Base = BaseValidator;
 
 })(jQuery, window, document);
