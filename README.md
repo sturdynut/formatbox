@@ -1,4 +1,4 @@
-# Sturdy Validator 
+# Sturdy Validator
 
 ---
 ##	*WORK IN PROGRESS*
@@ -9,7 +9,7 @@
 
 ## Contributing
 
-Check [CONTRIBUTING.md](https://github.com/sturdynut/sturdy-validator/master/CONTRIBUTING.md) for more information.
+Check [CONTRIBUTING.md](https://github.com/sturdynut/sturdy-validator/blob/master/CONTRIBUTING.md) for more information.
 
 ## History
 
