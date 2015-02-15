@@ -28,6 +28,20 @@
 			}
 		},
 
+		// Copy definitions
+		copy: {
+		  main: {
+		    files: [
+		      {
+		      	expand: true,
+		      	flatten: true,
+		      	src: ['node_modules/qunit/node_modules/qunitjs/qunit/qunit.js'],
+		      	dest: 'tests/'
+		      }
+		    ],
+		  },
+		},
+
 		// Lint definitions
 		jshint: {
 			files: ["src/sturdy-validator.js"],
@@ -58,11 +72,12 @@
 	});
 
 	grunt.loadNpmTasks("grunt-contrib-concat");
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 
-	grunt.registerTask("default", ["jshint", "concat", "uglify"]);
+	grunt.registerTask("default", ["jshint", "concat", "copy", "uglify"]);
 	grunt.registerTask("travis", ["jshint"]);
 
 };
