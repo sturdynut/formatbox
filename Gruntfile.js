@@ -19,12 +19,13 @@
 
 		// Concat definitions
 		concat: {
-			dist: {
-				src: ["src/sturdy-validator.js"],
-				dest: "dist/sturdy-validator.js"
-			},
 			options: {
-				banner: "<%= meta.banner %>"
+				banner: "<%= meta.banner %>",
+				separator: ';'
+			},
+			dist: {
+				src: ["src/sturdy-validator.js", "src/validator-base.js", "src/validators/*"],
+				dest: "dist/sturdy-validator.js"
 			}
 		},
 

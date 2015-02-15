@@ -11,6 +11,8 @@
 		<input id="email" placeholder="Email Address" type="email"></input>
 		<script>
 			$(function() {
+				SturdyValidator.init();
+
 				$('#email').on('keyup', function() {
 					$(this).validate({
 						success: function () {
