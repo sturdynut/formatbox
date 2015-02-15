@@ -1,6 +1,8 @@
-Validator = function (type, validate) {
-  this.type = type;
-  this.validate = validate;
-};
-Validator.prototype.type = 'base';
-Validator.prototype.validate = function () { throw new Error('\'validat\' method not implemented.')};
+if (Sturdy && Sturdy.Validator) {
+  Sturdy.Validator.Base = function (type, validate) {
+    this.type = type;
+    this.validate = validate;
+  };
+  Sturdy.Validator.Base.prototype.type = 'base';
+  Sturdy.Validator.Base.prototype.validate = function () { throw new Error('\'validat\' method not implemented.')};
+} else { throw new Error('Sturdy Error: undefined.'); }

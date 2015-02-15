@@ -2,18 +2,18 @@
 
   "use strict";
 
-  var SturdyValidator = function() {};
-  SturdyValidator.prototype.validators = [];
-  SturdyValidator.prototype.add = function (validator) {
+  var Validator = function() {};
+  Validator.prototype.validators = [];
+  Validator.prototype.add = function (validator) {
     this.validators.push(validator);
   };
-  SturdyValidator.prototype.lookup = function (type) {
+  Validator.prototype.lookup = function (type) {
     var index = this.validators.map(function(validator) {
       return validator.type;
     }).indexOf(type);
     return this.validators[index];
   };
-  SturdyValidator.prototype.init = function (options) {
+  Validator.prototype.init = function (options) {
     var defaults = {
       enabled: true,
       validators: this.validators
@@ -22,7 +22,7 @@
 
     this._initPlugIn(options);
   };
-  SturdyValidator.prototype._initPlugIn = function (options) {
+  Validator.prototype._initPlugIn = function (options) {
     var pluginName = "validate",
       defaults = {
         enabled: options.enabled,
@@ -61,7 +61,7 @@
         return el;
       },
       _validate: function (el, settings) {
-        var validator = window.SturdyValidator.lookup(settings.type || settings.defaultType);
+        var validator = window.Sturdy.Validator.lookup(settings.type || settings.defaultType);
         try {
           (validator.validate(el.val()) ?
             settings.success :
@@ -81,6 +81,7 @@
     };
   };
 
-  window.SturdyValidator = new SturdyValidator();
+  window.Sturdy = window.Sturdy || {};
+  window.Sturdy.Validator = new Validator();
 
 })(jQuery, window, document);

@@ -10,18 +10,18 @@
 
   "use strict";
 
-  var SturdyValidator = function() {};
-  SturdyValidator.prototype.validators = [];
-  SturdyValidator.prototype.add = function (validator) {
+  var Validator = function() {};
+  Validator.prototype.validators = [];
+  Validator.prototype.add = function (validator) {
     this.validators.push(validator);
   };
-  SturdyValidator.prototype.lookup = function (type) {
+  Validator.prototype.lookup = function (type) {
     var index = this.validators.map(function(validator) {
       return validator.type;
     }).indexOf(type);
     return this.validators[index];
   };
-  SturdyValidator.prototype.init = function (options) {
+  Validator.prototype.init = function (options) {
     var defaults = {
       enabled: true,
       validators: this.validators
@@ -30,7 +30,7 @@
 
     this._initPlugIn(options);
   };
-  SturdyValidator.prototype._initPlugIn = function (options) {
+  Validator.prototype._initPlugIn = function (options) {
     var pluginName = "validate",
       defaults = {
         enabled: options.enabled,
@@ -69,7 +69,7 @@
         return el;
       },
       _validate: function (el, settings) {
-        var validator = window.SturdyValidator.lookup(settings.type || settings.defaultType);
+        var validator = window.Sturdy.Validator.lookup(settings.type || settings.defaultType);
         try {
           (validator.validate(el.val()) ?
             settings.success :
@@ -89,20 +89,23 @@
     };
   };
 
-  window.SturdyValidator = new SturdyValidator();
+  window.Sturdy = window.Sturdy || {};
+  window.Sturdy.Validator = new Validator();
 
 })(jQuery, window, document);
-;Validator = function (type, validate) {
-  this.type = type;
-  this.validate = validate;
-};
-Validator.prototype.type = 'base';
-Validator.prototype.validate = function () { throw new Error('\'validat\' method not implemented.')};
-;if (SturdyValidator) {
-  SturdyValidator.add(new Validator(
+;if (Sturdy && Sturdy.Validator) {
+  Sturdy.Validator.Base = function (type, validate) {
+    this.type = type;
+    this.validate = validate;
+  };
+  Sturdy.Validator.Base.prototype.type = 'base';
+  Sturdy.Validator.Base.prototype.validate = function () { throw new Error('\'validat\' method not implemented.')};
+} else { throw new Error('Sturdy Error: undefined.'); }
+;if (Sturdy && Sturdy.Validator) {
+  Sturdy.Validator.add(new Sturdy.Validator.Base(
     'email',
     function(value) {
       return value.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
     }
   ));
-} else { throw new Error('SturdyValidator Error: Cannot add validator.'); }
+} else { throw new Error('Sturdy Error: Cannot add validator.'); }
