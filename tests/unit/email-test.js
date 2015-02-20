@@ -2,7 +2,7 @@
 define(
   function() {
     var run = function() {
-      test('This works', function () {
+      test('Valid email address', function () {
         equal(1, 1);
       })
     };
