@@ -24,23 +24,34 @@
 				separator: ';'
 			},
 			dist: {
-				src: ["src/sturdy-validator.js", "src/validator-base.js", "src/validators/*"],
+				src: ["src/sturdy-validator.js"],//, "src/validators/*"],
 				dest: "dist/sturdy-validator.js"
 			}
 		},
 
 		// Copy definitions
 		copy: {
-		  main: {
+		  demo: {
 		    files: [
 		      {
 		      	expand: true,
 		      	flatten: true,
-		      	src: ['node_modules/qunit/node_modules/qunitjs/qunit/qunit.js'],
-		      	dest: 'tests/'
+		      	src: ['node_modules/jquery/dist/jquery.js'],
+		      	dest: 'demo'
 		      }
 		    ],
 		  },
+		  tests: {
+		    files: [
+		      {
+		      	expand: true,
+		      	flatten: true,
+		      	src: ['node_modules/qunit/node_modules/qunitjs/qunit/qunit.js',
+		      				'node_modules/jquery/dist/jquery.js'],
+		      	dest: 'tests'
+		      }
+		    ],
+		  }
 		},
 
 		// Lint definitions

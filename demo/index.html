@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<title>Sturdy Validator</title>
-		<script src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
-		<script src='../dist/sturdy-validator.js'></script>
+		<script src='./jquery.js'></script>
+		<script data-main="main.js" src="require.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Roboto:900,100,400' rel='stylesheet' type='text/css'>
 		<link rel='stylesheet' href='demo.css' />
 	</head>
@@ -65,9 +65,9 @@
 		</div>
 
 		<script>
-			$(Sturdy.Validator.init({
+			// $(Sturdy.Validator.init({
 				// Options
-			}));
+			// }));
 
 			// Smoooth scrolling
 			// creds: http://css-tricks.com/snippets/jquery/smooth-scrolling/
