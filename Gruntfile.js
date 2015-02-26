@@ -24,7 +24,7 @@
 				separator: ';'
 			},
 			dist: {
-				src: ["src/sturdy-validator.js"],//, "src/validators/*"],
+				src: ["src/sturdy-validator.js"],
 				dest: "dist/sturdy-validator.js"
 			}
 		},
