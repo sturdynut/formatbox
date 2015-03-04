@@ -53,20 +53,15 @@ header h2 {
   padding: 0;
   margin: 0;
 }
-.main-content > section [type='email'],
-.main-content > section [type='date'],
-.main-content > section [type='time'],
-.main-content > section [type='number'],
 .main-content > section [type='text'] {
   border-radius: 3px;
-  border: solid 2px rgba(0, 0, 0, 0.8);
+  border: none;
   box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.8);
   display: block;
   font-size: 1em;
   font-weight: 400;
   padding: 10px;
   margin: 0 0 20px 0;
-  transition: all 0.3s;
   width: 340px;
 }
 ul.toc {
@@ -117,19 +112,4 @@ input[type='button'] {
   padding: 10px 15px;
   font-size: 1.2em;
   min-width: 190px;
-}
-
-/*
-  Sturdy Classes
-*/
-.sturdy-val-success,
-.sturdy-val-error.sturdy-val-success {
-  border: solid 2px #61b3a3 !important;
-  box-shadow: 0 0 7px 0 #61b3a3 !important;
-  transition: all 0.3s;
-}
-.sturdy-val-error {
-  border: solid 2px #b00 !important;
-  box-shadow: 0 0 7px 0 #b00 !important;
-  transition: all 0.3s;
 }

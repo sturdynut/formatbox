@@ -1,12 +1,5 @@
-/*
- *  Sturdy Validator - v0.0.1
- *  A validator that just works.
- *  https://github.com/sturdynut/sturdy-validator
- *
- *  Made by Matti Salokangas
- *  Under MIT License
- */
-var SturdyValidator = (function ($) {
+define(['jquery'], function ($) {
+
   "use strict";
 
   // Singleton Instance
@@ -192,10 +185,6 @@ var SturdyValidator = (function ($) {
   });
 
   return {
-    init: function(options) {
-      options = options || {};
-      getInstance().init(options);
-    }
+    getInstance: getInstance
   };
-
-})(jQuery);
+});

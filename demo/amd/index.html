@@ -3,7 +3,7 @@
 	<head>
 		<title>Sturdy Validator</title>
 		<script src='./jquery.js'></script>
-		<script src='../dist/sturdy-validator.js'></script>
+		<script data-main="main.js" src="require.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Roboto:900,100,400' rel='stylesheet' type='text/css'>
 		<link rel='stylesheet' href='demo.css' />
 	</head>
@@ -27,14 +27,14 @@
 			<section id='validateForm'>
 				<h1>Form Validation</h1>
 				<p>So easy, a monkey can do it.</p>
-				<form action='#' data-sturdy-val-type='form'>
+				<form action='#' data-sturdy-val>
 					<p>
 						<label for='firstName'>First Name</label>
-						<input type='text' id='firstName' name='firstName' data-sturdy-val-type='required'></input>
+						<input type='text' id='firstName' name='firstName' data-sturdy-val-required></input>
 					</p>
 					<p>
 						<label for='lastName'>Last Name</label>
-						<input type='text' id='lastName' name='lastName' data-sturdy-val-type='required'></input>
+						<input type='text' id='lastName' name='lastName' data-sturdy-val-required></input>
 					</p>
 					<p>
 						<label for='age'>Age</label>
@@ -42,10 +42,10 @@
 					</p>
 					<p>
 						<label for='favoriteColor'>Favorite Color?</label>
-						<input type='text' id='favoriteColor' name='favoriteColor' data-sturdy-val-type='required'></input>
+						<input type='text' id='favoriteColor' name='favoriteColor' data-sturdy-val-required></input>
 					</p>
 					<p>
-						<input type="radio" name="sex" value="male" data-sturdy-val-type='required'>Male
+						<input type="radio" name="sex" value="male" data-sturdy-val-required>Male
 						<br>
 						<input type="radio" name="sex" value="female">Female
 					</p>
@@ -112,11 +112,6 @@
 			    }
 			  });
 			});
-
-			// Init Sturdy Validator
-			$(SturdyValidator.init({
-
-			}));
 		</script>
 	</body>
 </html>

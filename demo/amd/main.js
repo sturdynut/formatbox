@@ -1,7 +1,5 @@
 require(['jquery', '../dist/sturdy-validator'],
   function($, sturdyValidator) {
-    $(function() {
-      sturdyValidator.init()
-    });
+    $(sturdyValidator.getInstance().init);
   }
 );
