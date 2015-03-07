@@ -16,11 +16,10 @@ require.config({
 });
 
 require(
-  ['QUnit', 'jquery', '../dist/sturdy-validator', 'unit/email-test'],
-  function (QUnit, sturdyValidator, emailTest) {
-    sturdyValidator.init();
+  ['QUnit', 'jQuery', '../dist/sturdy-validator', 'unit/email-test'],
+  function (QUnit, jQuery, sturdyValidator, emailTest) {
 
-    emailTest.run();
+    emailTest.run(sturdyValidator);
 
     QUnit.load();
     QUnit.start();

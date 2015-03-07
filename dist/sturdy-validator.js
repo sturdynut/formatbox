@@ -6,7 +6,14 @@
  *  Made by Matti Salokangas
  *  Under MIT License
  */
-var SturdyValidator = (function ($) {
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else {
+    root.SturdyValidator = factory(root.jQuery);
+  }
+
+}(this, function ($) {
   "use strict";
 
   // Singleton Instance
@@ -113,15 +120,18 @@ var SturdyValidator = (function ($) {
   //
   // Base Validator
   //
-  var BaseValidator = function (type, validate) {
+  var BaseValidator = function (type, isValid) {
     this.type = type;
-    if (validate) {
-      this.validate = validate;
+    if (isValid) {
+      this.isValid = isValid;
     }
   };
   $.extend(BaseValidator.prototype, {
-    validate: function () {
+    isValid: function () {
       throw new Error('Validate is not implemented.');
+    },
+    _isMatch: function (value, regex) {
+      return regex.test(value);
     }
   });
 
@@ -161,27 +171,28 @@ var SturdyValidator = (function ($) {
 
   // Date
   getInstance().push('date', function(value) {
-    return value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/);
+    return this._isMatch(value, /^\d{1,2}\/\d{1,2}\/\d{4}$/);
   });
 
   // Email
   getInstance().push('email', function(value) {
-    return value.match(/[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
+    return this._isMatch(value, /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
   });
 
   // Phone
   getInstance().push('phone', function(value) {
-    return value.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
+    return this._isMatch(value,
+      /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
   });
 
   // Social Security
   getInstance().push('social-security', function(value) {
-    return value.match(/^\d{3}-\d{2}-\d{4}$/);
+    return this._isMatch(value, /^\d{3}-\d{2}-\d{4}$/);
   });
 
   // Time
   getInstance().push('time', function(value) {
-    return value.match(/^\d{1,2}:\d{2}([ap]m)?$/);
+    return this._isMatch(value, /^\d{1,2}:\d{2}([ap]m)?$/);
   });
 
   // Form
@@ -191,11 +202,5 @@ var SturdyValidator = (function ($) {
     return isValid;
   });
 
-  return {
-    init: function(options) {
-      options = options || {};
-      getInstance().init(options);
-    }
-  };
-
-})(jQuery);
+  return getInstance();
+}));
