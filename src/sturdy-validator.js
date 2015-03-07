@@ -18,7 +18,7 @@ var SturdyValidator = (function ($) {
     settings: {
       DATA_PREFIX: 'data-sturdy-val-',
       DATA_SELECTOR: '[data-sturdy-val]',
-      DATA_TYPE: 'sturdy-val-type',
+      DATA_TYPE: 'sturdy-val',
       DATA_ON: 'sturdy-val-on',
       enabled: true,
       defaultEvent: 'blur',
