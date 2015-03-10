@@ -16,12 +16,17 @@ require.config({
 });
 
 require(
-  ['QUnit', 'jQuery', '../dist/sturdy-validator', 'unit/email-test'],
-  function (QUnit, jQuery, sturdyValidator, emailTest) {
+  ['QUnit', 'jquery', '../dist/sturdy-validator', 'helpers/edge-cases', 'unit/email-test', 'unit/phone-test'],
+  function (QUnit, jQuery, sturdyValidator, edgeCases, emailTest, phoneTest) {
+    var defaultOptions = {
+      validator: sturdyValidator,
+      edgeCases: edgeCases
+    };
 
-    emailTest.run(sturdyValidator);
+    emailTest(defaultOptions);
+    phoneTest(defaultOptions);
 
     QUnit.load();
     QUnit.start();
   }
-)
+);

@@ -24,7 +24,7 @@
 				separator: ';'
 			},
 			dist: {
-				src: ["src/sturdy-validator.js"],
+				src: ["src/phone-format.js", "src/sturdy-validator.js"],
 				dest: "dist/sturdy-validator.js"
 			}
 		},
