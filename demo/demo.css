@@ -9,7 +9,7 @@ input:focus {
   outline: none;
 }
 header {
-  border-top: solid 8px #fff;
+  border-top: 8px solid #fff;
   margin-top: 60px;
 }
 header h1 {
@@ -52,23 +52,6 @@ header h2 {
   font-weight: 900;
   padding: 0;
   margin: 0;
-}
-.main-content > section [type='email'],
-.main-content > section [type='date'],
-.main-content > section [type='time'],
-.main-content > section [type='number'],
-.main-content > section [type='text'] {
-  border-radius: 0;
-  border: none;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
-  box-shadow: none;
-  display: block;
-  font-size: 1em;
-  font-weight: 400;
-  padding: 10px;
-  margin: 0 0 20px 0;
-  transition: all 0.3s;
-  width: 340px;
 }
 ul.toc {
   padding: 0;
@@ -125,13 +108,43 @@ form label {
   padding: 10px 0;
 }
 
+[type='email'],
+[type='date'],
+[type='time'],
+[type='number'],
+[type='text'] {
+  border: none;
+  border-radius: 0;
+  border: 1px solid transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  display: block;
+  font-size: 1em;
+  font-weight: 400;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  transition: all 0.3s;
+  width: 340px;
+}
+
 /*
   Sturdy Classes
 */
+.data-sturdy-val {
+  transition: all 0.3s;
+}
 .sturdy-val-success,
-.sturdy-val-error.sturdy-val-success {
-  border-bottom: solid 1px #61b3a3 !important;
+.sturdy-val-error {
+  border-radius: 3px;
+  color: #fff !important;
+}
+.sturdy-val-success {
+  background-color: #80a147;
+  border: 1px solid #556b2f;
+  box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
 }
 .sturdy-val-error {
-  border-bottom: solid 1px #b00 !important;
+  background-color: #a14747;
+  border: 1px solid #6b2f2f;
+  box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
 }

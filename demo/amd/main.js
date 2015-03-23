@@ -1,5 +1,5 @@
-require(['jquery', '../dist/sturdy-validator'],
+require(['jquery', '../../dist/sturdy-validator.min.js'],
   function($, sturdyValidator) {
-    $(sturdyValidator.getInstance().init);
+    $(sturdyValidator.init);
   }
 );
