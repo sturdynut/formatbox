@@ -47,6 +47,21 @@
 		      	dest: 'tests'
 		      }
 		    ]
+		  },
+		  phoneformat: {
+		  	files: [
+		      {
+		      	expand: true,
+		      	flatten: true,
+		      	src: ['bower_components/phoneformat-js/dist/phone-format-global.js',
+		      				'bower_components/phoneformat-js/dist/phone-format-global.min.js',
+		      				'bower_components/phoneformat-js/dist/phone-format-global.min.js.map',
+		      				'bower_components/phoneformat-js/dist/phone-format-amd.js',
+		      				'bower_components/phoneformat-js/dist/phone-format-amd.min.js',
+		      				'bower_components/phoneformat-js/dist/phone-format-amd.min.js.map'],
+		      	dest: 'dist'
+		      }
+		    ]
 		  }
 		},
 
