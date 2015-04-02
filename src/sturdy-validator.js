@@ -48,7 +48,7 @@
   *   Makes the library.
   */
   function _make(instance) {
-    _extendPrototypes(instance);
+    _extend(instance);
     _addValidators(instance);
   }
 
@@ -57,7 +57,7 @@
   *     - ValidatorFactory
   *     - BaseValidator
   */
-  function _extendPrototypes(instance) {
+  function _extend(instance) {
     $.extend(ValidatorFactory.prototype, {
       settings: {
         DATA_PREFIX: 'data-sturdy-val-',
