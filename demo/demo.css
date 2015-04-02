@@ -130,20 +130,20 @@ form label {
 /*
   Sturdy Classes
 */
-.data-sturdy-val {
+.data-type,.data-required {
   transition: all 0.3s;
 }
-.sturdy-val-success,
-.sturdy-val-error {
+.valid,
+.invalid {
   border-radius: 3px;
   color: #fff !important;
 }
-.sturdy-val-success {
+.valid {
   background-color: #80a147;
   border: 1px solid #556b2f;
   box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
 }
-.sturdy-val-error {
+.invalid {
   background-color: #a14747;
   border: 1px solid #6b2f2f;
   box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);

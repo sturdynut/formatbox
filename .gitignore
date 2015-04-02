@@ -13,3 +13,7 @@ bower_components
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# Temp Directory #
+##################
+tmp

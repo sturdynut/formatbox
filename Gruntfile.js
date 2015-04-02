@@ -3,7 +3,7 @@
 	grunt.initConfig({
 
 		// Import package manifest
-		pkg: grunt.file.readJSON('sturdy-validator.json'),
+		pkg: grunt.file.readJSON('package.json'),
 
 		// Banner definitions
 		meta: {
@@ -19,7 +19,7 @@
 
 		// Lint definitions
 		jshint: {
-			files: ['src/sturdy-validator.js'],
+			files: ['src/sturdy-textbox.js'],
 			options: {
 				jshintrc: '.jshintrc'
 			}
@@ -48,22 +48,24 @@
 		      }
 		    ]
 		  },
-		  phoneformat: {
-		  	files: [
+		  src: {
+		    files: [
 		      {
 		      	expand: true,
 		      	flatten: true,
-		      	src: ['bower_components/phoneformat-js/dist/phone-format-global.js',
-		      				'bower_components/phoneformat-js/dist/phone-format-global.min.js',
-		      				'bower_components/phoneformat-js/dist/phone-format-global.min.js.map',
-		      				'bower_components/phoneformat-js/dist/phone-format-amd.js',
-		      				'bower_components/phoneformat-js/dist/phone-format-amd.min.js',
-		      				'bower_components/phoneformat-js/dist/phone-format-amd.min.js.map'],
+		      	src: ['tmp/sturdy-textbox.js'],
 		      	dest: 'dist'
 		      }
 		    ]
 		  }
 		},
+
+		concat: {
+      dependencies: {
+        src: ['node_modules/is_js/is.js', 'src/sturdy-textbox.js'],
+        dest: 'tmp/sturdy-textbox.js'
+      }
+    },
 
 		// Minify definitions
 		uglify: {
@@ -71,8 +73,8 @@
 				options: {
 					banner: '<%= meta.banner %>'
 				},
-				src: ['src/sturdy-validator.js'],
-				dest: 'dist/sturdy-validator.min.js'
+				src: ['tmp/sturdy-textbox.js'],
+				dest: 'dist/sturdy-textbox.min.js'
 			},
 			options: {
 				mangle: false,
@@ -90,12 +92,13 @@
 
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['jshint', 'uglify', 'copy']);
+	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'copy']);
 	grunt.registerTask('travis', ['jshint']);
 
 };

@@ -2,7 +2,7 @@
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
   } else {
-    root.SturdyValidator = factory(root.jQuery);
+    root.SturdyTextbox = factory(root.jQuery);
   }
 
 }(this, function ($) {
@@ -31,13 +31,13 @@
   *   Properties:
   *     - type [string]: The type of validator, e.g. "Email"
   *   Methods:
-  *     - isValid(args*) [boolean]: Returns true/false if valid or not.
+  *     - valid(args*) [boolean]: Returns true/false if valid or not.
   *       Note:  This method may be implemented differently depending upon the type.
   */
-  var BaseValidator = function (type, isValid) {
+  var BaseValidator = function (type, valid) {
     this.type = type;
-    if (isValid) {
-      this.isValid = isValid;
+    if (valid) {
+      this.valid = valid;
     }
   };
 
@@ -60,75 +60,75 @@
   function _extend(instance) {
     $.extend(ValidatorFactory.prototype, {
       settings: {
-        DATA_PREFIX: 'data-sturdy-val-',
-        DATA_SELECTOR: '[data-sturdy-val]',
-        DATA_TYPE: 'sturdy-val',
-        DATA_ON: 'sturdy-val-on',
+        prefix: 'data-',
+        selector: '[data-type],[data-required]',
+        type: 'type',
+        on: 'on',
         enabled: true,
-        defaultEvent: 'blur',
-        defaultType: 'email',
+        default: 'blur',
+        defaultType: 'required',
         pluginEnabled: false,
         success: function($el) {
-          $el.addClass('sturdy-val-success').removeClass('sturdy-val-error');
+          $el.addClass('valid').removeClass('invalid');
         },
         fail: function($el) {
-          $el.addClass('sturdy-val-error').removeClass('sturdy-val-success');
+          $el.addClass('invalid').removeClass('valid');
         },
         error: function(e) { console.log(e); }
       },
       _validators: [],
-      _sturdyValElements: [],
+      _elements: [],
       init: function (options) {
         options = $.extend({}, instance.settings, options);
 
-        var sturdyValElements = $(options.DATA_SELECTOR);
-        var needSturdy = sturdyValElements && sturdyValElements.length > 0;
-        var watch = instance._watchElement;
+        var elements = $(options.selector);
+        var haveElements = elements && elements.length > 0;
+        var wireUp = instance._wireUp;
 
-        if (needSturdy) {
-          this._sturdyValElements = sturdyValElements.toArray();
-          this._sturdyValElements.forEach(function(el) {
-            watch(el);
+        if (haveElements) {
+          this._elements = elements.toArray();
+          this._elements.forEach(function(el) {
+            wireUp(el);
           });
         }
       },
       push: function(type, fn) {
         this._validators.push(new BaseValidator(type, fn));
       },
-      _watchElement: function(el) {
+      _wireUp: function(el) {
         var $el = el.jquery ? el : $(el),
-            events = instance._getEventsForElement($el),
-            type = $el.data(instance.settings.DATA_TYPE),
-            defaultEvents = instance._getEventsForType(type);
+            events = instance._events($el),
+            type = $el.data(instance.settings.type),
+            defaults = instance._defaults(type);
 
-        var on = defaultEvents.concat(events.filter(function (e) {
-          return defaultEvents.indexOf(e) < 0;
+        var on = defaults.concat(events.filter(function (e) {
+          return defaults.indexOf(e) < 0;
         })).join(' ');
 
         $el.on(on, function() {
           instance._validate($el, type, $el.val());
         });
       },
-      _getEventsForElement: function($el) {
-        var on = $el.data(instance.settings.DATA_ON);
+      _events: function($el) {
+        var on = $el.data(instance.settings.on);
         if (on) {
           on = on.split(',');
         }
         return on || [];
       },
-      _getEventsForType: function(type) {
-        var defaultEvents = ['blur'];
+      _defaults: function(type) {
+        var defaults = ['blur'];
         if (type === 'form') {
-          defaultEvents = ['submit'];
+          defaults = ['submit'];
         }
-        return defaultEvents;
+        return defaults;
       },
       _validate: function ($el, type, value) {
         var settings = instance.settings;
         var validator = instance._lookup(type);
         try {
-          var isValid = validator.isValid(value);
-          if (isValid) {
+          var valid = validator.valid(value);
+          if (valid) {
             settings.success($el);
           }
           else {
@@ -147,7 +147,7 @@
     });
 
     $.extend(BaseValidator.prototype, {
-      isValid: function () {
+      valid: function () {
         throw new Error('Validate is not implemented.');
       },
       _isMatch: function (value, regex) {
@@ -158,78 +158,50 @@
 
   /*
   *   Adds the following validators:
-  *     - address
   *     - credit card
   *     - date
   *     - email
   *     - phone
   *     - social security
   *     - time
+  *     - url
   *     - form
   */
   var _addValidators = function(instance) {
-    // Address
-    instance.push('address', function(value) {
-      return value.length > 5;
-    });
 
     // Credit Card
     instance.push('credit-card', function(value) {
-      if (/[^0-9-\s]+/.test(value)) {
-        return false;
-      }
-      // The Luhn Algorithm. It's so pretty.
-      // creds: https://gist.github.com/DiegoSalazar/4075533
-      var nCheck = 0, nDigit = 0, bEven = false;
-      value = value.replace(/\D/g, '');
-
-      for (var n = value.length - 1; n >= 0; n--) {
-        var cDigit = value.charAt(n);
-        nDigit = parseInt(cDigit, 10);
-
-        if (bEven && (nDigit *= 2) > 9) {
-          nDigit -= 9;
-        }
-
-        nCheck += nDigit;
-        bEven = !bEven;
-      }
-
-      return (nCheck % 10) === 0;
+      return is.creditCard(value);
     });
 
     // Date
     instance.push('date', function(value) {
-      return this._isMatch(value, /^\d{1,2}\/\d{1,2}\/\d{4}$/);
+      return is.dateString(value);
     });
 
     // Email
     instance.push('email', function(value) {
-      return this._isMatch(value,
-        /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/);
+      return is.email(value);
     });
 
     // Phone
     instance.push('phone', function(value) {
-      return this._isMatch(value,
-        /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
+      return is.nanpPhone(value) && is.eppPhone(value);
     });
 
     // Social Security
     instance.push('social-security', function(value) {
-      return this._isMatch(value, /^\d{3}-\d{2}-\d{4}$/);
+      return is.socialSecurityNumber(value);
     });
 
     // Time
     instance.push('time', function(value) {
-      return this._isMatch(value, /^\d{1,2}:\d{2}([ap]m)?$/);
+      return is.timeString(value);
     });
 
-    // Form
-    instance.push('form', function(value) {
-      var isValid = true;
-
-      return isValid;
+    // Time
+    instance.push('url', function(value) {
+      return is.url(value);
     });
   };
 
