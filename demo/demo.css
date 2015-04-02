@@ -1,3 +1,9 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 body {
   background-color: #783B0B;
   color: #f3f3f3;
@@ -19,12 +25,14 @@ header h1 {
   padding: 0 40px;
   text-align: center;
   margin: -37px auto 0;
-  width: 420px;
+  width: 490px;
 }
 header h2 {
   font-size: 2em;
   font-weight: 400;
   text-align: center;
+  color: #5f2c04;
+  margin: 10px 0 0 0;
 }
 .main-content {
   width: 90%;
@@ -41,11 +49,11 @@ header h2 {
   text-align: left;
 }
 .main-content > section {
-  color: #111;
-  background-color: #fff;
-  border-radius: 25px;
-  padding: 20px 40px;
-  margin: 0 0 60px 0;
+  color: #fff;
+  float: left;
+  padding: 20px;
+  margin: 0;
+  width: 50%;
 }
 .main-content > section h1 {
   font-size: 2em;
@@ -54,21 +62,26 @@ header h2 {
   margin: 0;
 }
 ul.toc {
-  padding: 0;
-  margin: 0 0 100px 0;
+  padding: 20px;
+  margin: 0 0 40px 0;
   overflow: hidden;
+  width: 100%;
+  background: #5f2c04;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 }
 ul.toc li {
   float: left;
-  padding: 0 0 5px 80px;
+  padding: 0 0 5px 50px;
   position: relative;
   margin: 0;
   list-style: none;
-  width: 40%;
+  width: 33.33333%;
 }
 ul.toc li:before {
   content: '\261E';
-  font-size: 2em;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.4em;
   position: absolute;
   left: 0;
   top: 50%;
@@ -76,11 +89,11 @@ ul.toc li:before {
   transform: translateY(-50%);
 }
 ul.toc li:hover:before {
-  left: 35px;
+  left: 22px;
 }
 ul.toc li a {
   color: #fff;
-  font-size: 2em;
+  font-size: 1.2em;
   text-decoration: none;
 }
 ul.toc li a:hover {
@@ -114,7 +127,7 @@ form label {
 [type='number'],
 [type='text'] {
   border: none;
-  border-radius: 0;
+  border-radius: 3px;
   border: 1px solid transparent;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: none;
@@ -124,7 +137,7 @@ form label {
   padding: 10px;
   margin: 0 0 20px 0;
   transition: all 0.3s;
-  width: 340px;
+  width: 100%;
 }
 
 /*

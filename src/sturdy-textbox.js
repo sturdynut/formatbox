@@ -186,7 +186,7 @@
 
     // Phone
     instance.push('phone', function(value) {
-      return is.nanpPhone(value) && is.eppPhone(value);
+      return is.nanpPhone(value) || is.eppPhone(value);
     });
 
     // Social Security
