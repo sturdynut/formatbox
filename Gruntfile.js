@@ -62,7 +62,10 @@
 
 		concat: {
       dependencies: {
-        src: ['node_modules/is_js/is.js', 'src/sturdy-textbox.js'],
+        src: ['node_modules/is_js/is.js',
+        			'node_modules/moment/moment.js',
+        			'bower_components/formatter/dist/formatter.js',
+        			'src/sturdy-textbox.js'],
         dest: 'tmp/sturdy-textbox.js'
       }
     },

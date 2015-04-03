@@ -1,19 +1,22 @@
 {
-	"name": "sturdy-textbox",
-	"version": "0.0.1",
-	"homepage": "https://github.com/sturdynut/sturdy-textbox",
-	"authors": [
-		"Matti Salokangas <matti.salokangas@gmail.com>"
-	],
-	"description": "A textbox that has validation and formatting.",
-	"main": "dist/sturdy-textbox.js",
-	"keywords": [
-		"jquery",
-		"plugin",
-		"jquery-plugin",
-		"sturdy",
-		"sturdy-validator",
-		"validator"
-	],
-	"license": "MIT"
+  "name": "sturdy-textbox",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sturdynut/sturdy-textbox",
+  "authors": [
+    "Matti Salokangas <matti.salokangas@gmail.com>"
+  ],
+  "description": "A textbox that has validation and formatting.",
+  "main": "dist/sturdy-textbox.js",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "jquery-plugin",
+    "sturdy",
+    "sturdy-validator",
+    "validator"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "formatter": "~0.1.5"
+  }
 }

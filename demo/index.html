@@ -3,7 +3,7 @@
 	<head>
 		<title>Sturdy Textbox</title>
 		<script src='./jquery.js'></script>
-		<script src='../dist/sturdy-textbox.min.js'></script>
+		<script src='../tmp/sturdy-textbox.js'></script>
 		<link href='http://fonts.googleapis.com/css?family=Roboto:900,100,400' rel='stylesheet' type='text/css'>
 		<link rel='stylesheet' href='demo.css' />
 	</head>
@@ -22,36 +22,6 @@
 				<li><a href='#validateDate'>validate a date.</a>
 				<li><a href='#validateTime'>validate a time.</a>
 			</ul>
-			<section id='validateForm' style='display: none;'>
-				<h1>Form Validation</h1>
-				<p>So easy, a monkey can do it.</p>
-				<form action='#' data-type='form'>
-					<p>
-						<label for='firstName'>First Name</label>
-						<input type='text' id='firstName' name='firstName' data-required></input>
-					</p>
-					<p>
-						<label for='lastName'>Last Name</label>
-						<input type='text' id='lastName' name='lastName' data-required></input>
-					</p>
-					<p>
-						<label for='age'>Age</label>
-						<input type='text' id='age' name='age' data-type='number'></input>
-					</p>
-					<p>
-						<label for='favoriteColor'>Favorite Color?</label>
-						<input type='text' id='favoriteColor' name='favoriteColor' data-required></input>
-					</p>
-					<p>
-						<input type="radio" name="sex" value="male" data-required>Male
-						<br>
-						<input type="radio" name="sex" value="female">Female
-					</p>
-					<p>
-						<input type='submit' value='Submit' />
-					</p>
-				</form>
-			</section>
 			<section id='validateURL'>
 				<h1>Url</h1>
 				<input id='url' placeholder='http://' type='text' data-type='url' data-on='keyup,blur'></input>

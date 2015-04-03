@@ -5,7 +5,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  background-color: #783B0B;
+  background-color: #daab73;
   color: #f3f3f3;
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -15,24 +15,24 @@ input:focus {
   outline: none;
 }
 header {
-  border-top: 8px solid #fff;
-  margin-top: 60px;
+  background-color: #ad6c4c;
+  overflow: hidden;
 }
 header h1 {
-  background-color: #783B0B;
   font-size: 3.5em;
   font-weight: 900;
-  padding: 0 40px;
-  text-align: center;
-  margin: -37px auto 0;
-  width: 490px;
+  padding: 0;
+  text-align: left;
+  margin: 0;
+  float: left;
 }
 header h2 {
   font-size: 2em;
   font-weight: 400;
-  text-align: center;
-  color: #5f2c04;
-  margin: 10px 0 0 0;
+  float: left;
+  text-align: left;
+  color: #ae6c49;
+  margin: 0;
 }
 .main-content {
   width: 90%;
@@ -40,7 +40,7 @@ header h2 {
   margin: 0 auto;
   font-style: 0.9em;
   line-height: 2;
-  color: #fff;
+  color: #60311b;
   font-weight: 100;
   padding: 40px;
 }
@@ -49,13 +49,14 @@ header h2 {
   text-align: left;
 }
 .main-content > section {
-  color: #fff;
+  color: #60311b;
   float: left;
   padding: 20px;
   margin: 0;
   width: 50%;
 }
 .main-content > section h1 {
+  color: #ae6c49;
   font-size: 2em;
   font-weight: 900;
   padding: 0;
@@ -63,11 +64,9 @@ header h2 {
 }
 ul.toc {
   padding: 20px;
-  margin: 0 0 40px 0;
+  margin: 0 0 20px 0;
   overflow: hidden;
   width: 100%;
-  background: #5f2c04;
-  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
 }
 ul.toc li {
@@ -80,7 +79,7 @@ ul.toc li {
 }
 ul.toc li:before {
   content: '\261E';
-  color: rgba(255, 255, 255, 0.5);
+  color: #60311b;
   font-size: 1.4em;
   position: absolute;
   left: 0;
@@ -92,7 +91,7 @@ ul.toc li:hover:before {
   left: 22px;
 }
 ul.toc li a {
-  color: #fff;
+  color: #60311b;
   font-size: 1.2em;
   text-decoration: none;
 }
@@ -108,9 +107,9 @@ pre {
 input[type='submit'],
 input[type='button'] {
   border-radius: 3px;
-  background-color: #783B0B;
+  background-color: #daab73;
   border-style: none;
-  color: #fff;
+  color: #60311b;
   padding: 10px 15px;
   font-size: 1.2em;
   min-width: 190px;
@@ -149,7 +148,7 @@ form label {
 .valid,
 .invalid {
   border-radius: 3px;
-  color: #fff !important;
+  color: #60311b !important;
 }
 .valid {
   background-color: #80a147;
