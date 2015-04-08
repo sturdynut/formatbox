@@ -17,32 +17,33 @@ input:focus {
 header {
   background-color: #ad6c4c;
   overflow: hidden;
+  padding: 40px;
 }
 header h1 {
   font-size: 3.5em;
   font-weight: 900;
-  padding: 0;
-  text-align: left;
   margin: 0;
-  float: left;
+  padding: 0;
+  text-align: center;
 }
 header h2 {
+  color: rgba(255, 255, 255, 0.8);
   font-size: 2em;
   font-weight: 400;
-  float: left;
-  text-align: left;
-  color: #ae6c49;
   margin: 0;
+  padding: 0;
+  text-align: center;
+}
+sup {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
 }
 .main-content {
-  width: 90%;
-  min-width: 1024px;
   margin: 0 auto;
-  font-style: 0.9em;
   line-height: 2;
   color: #60311b;
   font-weight: 100;
-  padding: 40px;
+  padding: 20px;
 }
 .main-content > h1 {
   font-size: 2em;
@@ -63,39 +64,49 @@ header h2 {
   margin: 0;
 }
 ul.toc {
-  padding: 20px;
+  border-radius: 3px;
   margin: 0 0 20px 0;
   overflow: hidden;
+  padding: 0;
   width: 100%;
-  border-radius: 3px;
+  transition: all 1s;
+}
+ul.toc:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 2px 2px 0 rgba(0,0,0,0.1);
 }
 ul.toc li {
-  float: left;
-  padding: 0 0 5px 50px;
-  position: relative;
   margin: 0;
+  overflow: hidden;
+  position: relative;
   list-style: none;
-  width: 33.33333%;
 }
-ul.toc li:before {
+ul.toc li a:before {
   content: '\261E';
   color: #60311b;
   font-size: 1.4em;
+  opacity: 0.5;
   position: absolute;
   left: 0;
   top: 50%;
-  transition: left 0.3s;
+  text-align: center;
+  transition: all 0.3s;
   transform: translateY(-50%);
+  width: 55px;
 }
-ul.toc li:hover:before {
-  left: 22px;
+ul.toc li a:hover:before {
+  opacity: 1;
 }
 ul.toc li a {
   color: #60311b;
+  display: block;
+  padding: 0 0 0 65px;
   font-size: 1.2em;
   text-decoration: none;
+  transition: all 0.3s;
 }
 ul.toc li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
   text-decoration: underline;
 }
 pre {
@@ -139,6 +150,17 @@ form label {
   width: 100%;
 }
 
+/* Desktop */
+@media (min-width: 1024px) {
+  .main-content {
+    width: 90%;
+  }
+
+  ul.toc li {
+    float: left;
+    width: 33.33333%;
+  }
+}
 /*
   Sturdy Classes
 */
