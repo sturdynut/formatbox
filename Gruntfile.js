@@ -32,8 +32,8 @@
 		      {
 		      	expand: true,
 		      	flatten: true,
-		      	src: ['node_modules/jquery/dist/jquery.js'],
-		      	dest: 'demo'
+		      	src: ['node_modules/jquery/dist/jquery.js', 'tmp/formatbox.js'],
+		      	dest: 'demo/public/js'
 		      }
 		    ]
 		  },
@@ -102,6 +102,4 @@
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'copy']);
-	grunt.registerTask('travis', ['jshint']);
-
 };
