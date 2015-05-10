@@ -19,7 +19,7 @@
 
 		// Lint definitions
 		jshint: {
-			files: ['src/sturdy-textbox.js'],
+			files: ['src/formatbox.js'],
 			options: {
 				jshintrc: '.jshintrc'
 			}
@@ -53,7 +53,7 @@
 		      {
 		      	expand: true,
 		      	flatten: true,
-		      	src: ['tmp/sturdy-textbox.js'],
+		      	src: ['tmp/formatbox.js'],
 		      	dest: 'dist'
 		      }
 		    ]
@@ -65,8 +65,8 @@
         src: ['node_modules/is_js/is.js',
         			'node_modules/moment/moment.js',
         			'bower_components/formatter/dist/formatter.js',
-        			'src/sturdy-textbox.js'],
-        dest: 'tmp/sturdy-textbox.js'
+        			'src/formatbox.js'],
+        dest: 'tmp/formatbox.js'
       }
     },
 
@@ -76,8 +76,8 @@
 				options: {
 					banner: '<%= meta.banner %>'
 				},
-				src: ['tmp/sturdy-textbox.js'],
-				dest: 'dist/sturdy-textbox.min.js'
+				src: ['tmp/formatbox.js'],
+				dest: 'dist/formatbox.min.js'
 			},
 			options: {
 				mangle: false,

@@ -1,22 +1,30 @@
 {
-  "name": "sturdy-textbox",
-  "version": "0.0.1",
-  "homepage": "https://github.com/sturdynut/sturdy-textbox",
+  "name": "formatbox",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sturdynut/formatbox",
   "authors": [
     "Matti Salokangas <matti.salokangas@gmail.com>"
   ],
-  "description": "A textbox that has validation and formatting.",
-  "main": "dist/sturdy-textbox.js",
+  "description": "A textbox with formatting and validation.",
+  "main": "dist/formatbox.js",
   "keywords": [
-    "jquery",
-    "plugin",
-    "jquery-plugin",
-    "sturdy",
-    "sturdy-validator",
-    "validator"
+    "format",
+    "textbox",
+    "formatbox"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "formatter": "~0.1.5"
-  }
+  "ignore": [
+    "./src",
+    "./node_modules",
+    "./demo",
+    ".jshintrc",
+    ".npmignore",
+    ".slugignore",
+    "app.js",
+    "CONTRIBUTING.md",
+    "Gruntfile.js",
+    "npm-debug.log",
+    "package.json",
+    "Procfile"
+  ],
+  "license": "MIT"
 }

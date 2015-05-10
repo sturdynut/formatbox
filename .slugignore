@@ -1,0 +1,5 @@
+/dist
+/src
+CONTRIBUTING.md
+Gruntfile.js
+bower.json

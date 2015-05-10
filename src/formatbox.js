@@ -1,8 +1,18 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * *
+ * Formatbox v.0.0.0
+ * A textbox with formatting and validation.
+ *
+ * https://github.com/sturdynut/formatbox
+ *
+ * Copyright 2015, Matti Salokangas
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ * * * * * * * * * * * * * * * * * * * * * * * * */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
   } else {
-    root.SturdyTextbox = factory(root.jQuery);
+    root.Formatbox = factory(root.jQuery);
   }
 
 }(this, function ($) {

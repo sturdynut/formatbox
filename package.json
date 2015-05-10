@@ -1,13 +1,13 @@
 {
-  "name": "sturdy-textbox",
-  "title": "Sturdy Textbox",
-  "description": "A textbox that has validation and formatting.",
+  "name": "formatbox",
+  "title": "Formatbox",
+  "description": "A textbox with formatting and validation.",
   "keywords": [
-    "sturdy",
-    "sturdy-textbox",
-    "textbox"
+    "format",
+    "textbox",
+    "formatbox"
   ],
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": {
     "name": "Matti Salokangas",
     "email": "matti.salokangas@gmail.com",
@@ -26,11 +26,11 @@
       "url": "http://mit-license.org/"
     }
   ],
-  "bugs": "https://github.com/sturdynut/sturdy-textbox/issues",
-  "homepage": "https://github.com/sturdynut/sturdy-textbox",
-  "docs": "https://github.com/sturdynut/sturdy-textbox#readme",
-  "download": "https://github.com/sturdynut/sturdy-textbox/archive/master.zip",
-  "main": "dist/sturdy-textbox.js",
+  "bugs": "https://github.com/sturdynut/formatbox/issues",
+  "homepage": "https://github.com/sturdynut/formatbox",
+  "docs": "https://github.com/sturdynut/formatbox#readme",
+  "download": "https://github.com/sturdynut/formatbox/archive/master.zip",
+  "main": "dist/formatbox.js",
   "private": true,
   "devDependencies": {
     "grunt": "^0.4.5",

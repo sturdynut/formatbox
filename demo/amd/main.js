@@ -1,5 +1,5 @@
-require(['jquery', '../../dist/sturdy-validator.min.js'],
-  function($, sturdyValidator) {
-    $(sturdyValidator.init);
+require(['jquery', '../../dist/formatbox.js'],
+  function($, formatbox) {
+    $(formatbox.init);
   }
 );
