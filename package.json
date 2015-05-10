@@ -33,11 +33,11 @@
   "main": "dist/formatbox.js",
   "private": true,
   "dependencies": {
+    "express": "~4.9.x",
     "is_js": "^0.7.3",
     "moment": "^2.9.0"
   },
   "devDependencies": {
-    "express": "~4.9.x",
     "grunt": "^0.4.5",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-concat": "^0.5.1",
