@@ -5,8 +5,8 @@ html {
   box-sizing: inherit;
 }
 body {
-  background-color: #daab73;
-  color: #f3f3f3;
+  background-color: #fff;
+  color: #333;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
@@ -15,11 +15,11 @@ input:focus {
   outline: none;
 }
 header {
-  background-color: #ad6c4c;
   overflow: hidden;
   padding: 40px;
 }
 header h1 {
+  color: #60311b;
   font-size: 3.5em;
   font-weight: 900;
   margin: 0;
@@ -41,20 +41,15 @@ sup {
 .main-content {
   margin: 0 auto;
   line-height: 2;
-  color: #60311b;
   font-weight: 100;
-  padding: 20px;
 }
 .main-content > h1 {
   font-size: 2em;
   text-align: left;
 }
 .main-content > section {
-  color: #60311b;
-  float: left;
   padding: 20px;
   margin: 0;
-  width: 50%;
 }
 .main-content > section h1 {
   color: #ae6c49;
@@ -64,16 +59,10 @@ sup {
   margin: 0;
 }
 ul.toc {
-  border-radius: 3px;
-  margin: 0 0 20px 0;
+  margin: 0;
   overflow: hidden;
   padding: 0;
-  width: 100%;
   transition: all 1s;
-}
-ul.toc:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px 2px 2px 0 rgba(0,0,0,0.1);
 }
 ul.toc li {
   margin: 0;
@@ -95,18 +84,20 @@ ul.toc li a:before {
   width: 55px;
 }
 ul.toc li a:hover:before {
+  color: #fff;
   opacity: 1;
 }
 ul.toc li a {
   color: #60311b;
   display: block;
-  padding: 0 0 0 65px;
+  padding: 10px 0 10px 65px;
   font-size: 1.2em;
   text-decoration: none;
   transition: all 0.3s;
 }
 ul.toc li a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #60311b;
+  color: #fff;
   text-decoration: underline;
 }
 pre {
@@ -161,8 +152,9 @@ form label {
     width: 33.33333%;
   }
 }
+
 /*
-  Sturdy Classes
+  Validation
 */
 .data-type,.data-required {
   transition: all 0.3s;
@@ -170,15 +162,14 @@ form label {
 .valid,
 .invalid {
   border-radius: 3px;
-  color: #60311b !important;
 }
 .valid {
   background-color: #80a147;
   border: 1px solid #556b2f;
-  box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+  color: #fff;
 }
 .invalid {
-  background-color: #a14747;
+  background-color: #b00;
   border: 1px solid #6b2f2f;
-  box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+  color: #fff;
 }
